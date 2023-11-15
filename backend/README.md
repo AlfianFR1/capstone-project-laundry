@@ -1,27 +1,29 @@
-# Boilerplate Framework
+# Express Backend
 
-## Overview
+## Installation
 
-Project ini sebagai acuan untuk mengerjakan project selama bootcamp berlangsung.framework ini menggunakan basic structure MVC(Model View Controller) untuk mempermudah pengerjaan project.Struktur dari project ini terinspirasi dari Laravel framework.
+1. Go to the backend folder
 
-### How To Use ?
+```bash
+cd backend
+```
 
--   silahkan `use this template`
--   kemudian jalankan
+2. Install dependencies
 
 ```bash
 npm install
 ```
 
--   setelah itu copy file `.env.example` pada terminal dengan cara :
+3. Copy the .env.example file to .env
 
 ```bash
 cp .env.example .env
 ```
 
--   kemudian isikan configurasi pada file `.env` silahkan disesuaikan sendiri
+4. Set the environment variables in .env
 
 ```
+
 APP_NAME = Vocasia Backend Framework
 APP_PORT = 3000
 APP_URL = http://localhost
@@ -37,37 +39,20 @@ DB_PORT=3306
 
 ```
 
--   Coba jalankan menggunakan script dibawah ini :
+5. Run the app
 
-```
-npm run start
-```
-
--   kemudian coba akses url dibawah ini menggunakan http request app favorit kalian :
-
-```
-http://localhost:3000/
+```bash
+npm run dev
 ```
 
-jika berhasil akan muncul seperti ini :
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```json
-{
-    "message": "Hello exampleController"
-}
+## How to generate controller
+
+1. Run the command below in backend folder
+
+```bash
+npm run generate-controller <your_controller_name>
 ```
 
-### How To Generate Controller Automatic ?
-
--   untuk membuat controller secara otomatis silahkan jalankan skrip berikut di terminal :
-    ```
-    npm run generate-controller your_controller_name
-    ```
--   jika berhasil maka akan terbuat file controller baru
-
-# Resources
-
--   ExpressJs
--   Sequelize
--   Nodemon
--   mysql2
+2. The controller will be generated in the controllers folder

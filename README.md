@@ -1,73 +1,51 @@
-# Boilerplate Framework Backend Bootcamp Vocasia
+# Capstone Project - Laundry Service
 
-## Overview
+## Introduction
 
-Project ini sebagai acuan untuk mengerjakan project selama bootcamp berlangsung.framework ini menggunakan basic structure MVC(Model View Controller) untuk mempermudah pengerjaan project.Struktur dari project ini terinspirasi dari Laravel framework.
+This project is a capstone project for the Kampus Merdeka Program with Vocasia. This project is a laundry service application that can be used by customers to order laundry services and by laundry owners to manage their laundry orders.
 
-### How To Use ?
+## Installation
 
--   silahkan `use this template`
--   kemudian jalankan
-
-```bash
-npm install
-```
-
--   setelah itu copy file `.env.example` pada terminal dengan cara :
+1. Clone this repository
 
 ```bash
-cp .env.example .env
+git clone
 ```
 
--   kemudian isikan configurasi pada file `.env` silahkan disesuaikan sendiri
+2. Go to the backend folder
 
-```
-APP_NAME = Vocasia Backend Framework
-APP_PORT = 3000
-APP_URL = http://localhost
-NODE_ENV=development
-
-# database
-DB_HOST=127.0.0.1
-DB_DRIVER=mysql
-DB_NAME=vocasia
-DB_USER=root
-DB_PASS=root
-DB_PORT=3306
-
+```bash
+cd backend
 ```
 
--   Coba jalankan menggunakan script dibawah ini :
+3. Read the README.md in the backend folder
 
-```
-npm run start
-```
+4. Go to the frontend folder
 
--   kemudian coba akses url dibawah ini menggunakan http request app favorit kalian :
-
-```
-http://localhost:3000/
+```bash
+cd frontend
 ```
 
-jika berhasil akan muncul seperti ini :
+5. Read the README.md in the frontend folder
 
-```json
-{
-    "message": "Hello exampleController"
-}
-```
+## Important Notes
 
-### How To Generate Controller Automatic ?
+-   Make sure you run the backend first before running the frontend
+-   Make sure you have MySQL installed on your computer
+-   Make sure you have Node JS installed on your computer
 
--   untuk membuat controller secara otomatis silahkan jalankan skrip berikut di terminal :
-    ```
-    npm run generate-controller your_controller_name
-    ```
--   jika berhasil maka akan terbuat file controller baru
+## Project Stack
 
-# Resources
+-   Express JS
+-   MySQL
+-   Sequelize ORM
+-   React JS
+-   Tailwind CSS
+-   Zustand
 
--   ExpressJs
--   Sequelize
--   Nodemon
--   mysql2
+## Group Members
+
+-   Juan Antonio Vivaldy Saragih
+-   Juanita Tria Silpi Analia
+-   Alfian F
+-   Dimas Pangestu
