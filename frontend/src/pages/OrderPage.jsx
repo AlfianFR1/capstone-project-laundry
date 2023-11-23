@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { MdOutlineCategory, MdShoppingCartCheckout } from 'react-icons/md';
 import { IoBagCheckOutline } from 'react-icons/io5';
 import ProductItem from '../components/orders/ProductItem';
+import CategoryItem from '../components/orders/CategoryItem';
 
 export default function OrderPage() {
     const { selectedCategory, setSelectedCategory } = useStore();
@@ -99,112 +100,75 @@ export default function OrderPage() {
         }
     }, [selectedCategory]);
 
-    const handleSelectCategory = (category) => {
-        setSelectedCategory(category);
-        handleNext();
-    };
+    const steps = [
+        {
+            id: 1,
+            icon: <MdOutlineCategory className='w-5 h-5' />,
+            title: 'Step 1',
+            description: 'Pilih kategori layanan',
+        },
+        {
+            id: 2,
+            icon: <MdShoppingCartCheckout className='w-5 h-5' />,
+            title: 'Step 2',
+            description: 'Pilih produk yang tersedia',
+        },
+        {
+            id: 3,
+            icon: <IoBagCheckOutline className='w-5 h-5' />,
+            title: 'Step 3',
+            description: 'Konfirmasi pesanan',
+        },
+    ];
 
     return (
         <MainLayout>
-            <div className='w-full py-4 mt-12 px-14'>
+            <div className='w-full px-6 py-4 mt-8 md:mt-12 md:px-14'>
                 <Stepper
                     activeStep={activeStep}
                     isLastStep={(value) => setIsLastStep(value)}
                     isFirstStep={(value) => setIsFirstStep(value)}
                     lineClassName='bg-gray-200'
                 >
-                    <Step
-                        onClick={() => setActiveStep(0)}
-                        className='cursor-pointer'
-                    >
-                        <MdOutlineCategory className='w-5 h-5' />
-                        <div className='absolute -bottom-[5rem] md:-bottom-[4rem] w-max text-center'>
-                            <Typography
-                                variant='h6'
-                                color={activeStep === 0 ? 'blue-gray' : 'gray'}
-                            >
-                                Step 1
-                            </Typography>
-                            <Typography
-                                color={activeStep === 0 ? 'blue-gray' : 'gray'}
-                                className='font-normal max-w-[8rem] md:max-w-full'
-                                variant='small'
-                            >
-                                Pilih kategori layanan
-                            </Typography>
-                        </div>
-                    </Step>
-                    <Step
-                        onClick={() => setActiveStep(1)}
-                        className='cursor-pointer'
-                    >
-                        <MdShoppingCartCheckout className='w-5 h-5' />
-                        <div className='absolute -bottom-[5rem] md:-bottom-[4rem] w-max text-center'>
-                            <Typography
-                                variant='h6'
-                                color={activeStep === 1 ? 'blue-gray' : 'gray'}
-                            >
-                                Step 2
-                            </Typography>
-                            <Typography
-                                color={activeStep === 1 ? 'blue-gray' : 'gray'}
-                                className='font-normal max-w-[8rem] md:max-w-full'
-                                variant='small'
-                            >
-                                Pilih produk yang tersedia
-                            </Typography>
-                        </div>
-                    </Step>
-                    <Step
-                        onClick={() => setActiveStep(2)}
-                        className='cursor-pointer'
-                    >
-                        <IoBagCheckOutline className='w-5 h-5' />
-                        <div className='absolute -bottom-[5rem] md:-bottom-[4rem] w-max text-center'>
-                            <Typography
-                                variant='h6'
-                                color={activeStep === 2 ? 'blue-gray' : 'gray'}
-                            >
-                                Step 3
-                            </Typography>
-                            <Typography
-                                color={activeStep === 2 ? 'blue-gray' : 'gray'}
-                                className='font-normal max-w-[8rem] md:max-w-full'
-                                variant='small'
-                            >
-                                Konfirmasi pesanan
-                            </Typography>
-                        </div>
-                    </Step>
+                    {steps.map((step, i) => (
+                        <Step
+                            onClick={() => setActiveStep(i)}
+                            className='cursor-pointer'
+                            key={step.id}
+                        >
+                            {step.icon}
+                            <div className='absolute -bottom-[5rem] md:-bottom-[4rem] w-max text-center'>
+                                <Typography
+                                    variant='h6'
+                                    color={
+                                        activeStep === i ? 'blue-gray' : 'gray'
+                                    }
+                                >
+                                    {step.title}
+                                </Typography>
+                                <Typography
+                                    color={
+                                        activeStep === i ? 'blue-gray' : 'gray'
+                                    }
+                                    className='font-normal max-w-[8rem] md:max-w-full'
+                                    variant='small'
+                                >
+                                    {step.description}
+                                </Typography>
+                            </div>
+                        </Step>
+                    ))}
                 </Stepper>
             </div>
 
             {activeStep === 0 && (
                 <main className='grid grid-cols-1 gap-8 mt-28 lg:grid-cols-2'>
                     {categories.map((category) => (
-                        <Button
+                        <CategoryItem
                             key={category.id}
-                            className='flex items-center px-8 transition-all border border-gray-200 shadow-lg cursor-pointer flexWrap rounded-xl group hover:shadow-sm active:border-indigo-200 active:shadow-sm'
-                            color='white'
-                            size='sm'
-                            onClick={() => handleSelectCategory(category)}
-                        >
-                            <img
-                                src={category.image}
-                                alt={category.name}
-                                className='h-40 w-44 group-hover:animate-bounce'
-                            />
-
-                            <div className='ml-8 text-left normal-case'>
-                                <Typography color='blue-gray' variant='h5'>
-                                    {category.name}
-                                </Typography>
-
-                                <Typography color='gray' variant='small'>
-                                    Mulai dari Rp {category.price}/kg
-                                </Typography>
-                            </div>
-                        </Button>
+                            category={category}
+                            nextStep={handleNext}
+                        />
                     ))}
                 </main>
             )}
