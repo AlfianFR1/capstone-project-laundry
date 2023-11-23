@@ -1,4 +1,3 @@
-import GuestLayout from '@/layouts/GuestLayout';
 import DashboardPage from '@/pages/DashboardPage';
 import LoginPage from '@/pages/LoginPage';
 import OrderHistoryPage from '@/pages/OrderHistoryPage';
@@ -9,9 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 export default function Router() {
     return (
         <Routes>
-            <Route element={<GuestLayout />}>
-                <Route path='/login' element={<LoginPage />} />
-            </Route>
+            <Route path='/login' element={<LoginPage />} />
 
             <Route path='/' element={<DashboardPage />} />
             <Route path='/order' element={<OrderPage />} />

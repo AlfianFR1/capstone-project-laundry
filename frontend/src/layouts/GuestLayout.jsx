@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
-
-export default function GuestLayout({ className = '' }) {
+export default function GuestLayout({ className = '', children }) {
     return (
-        <main className={`flexCenter min-h-screen w-full ${className}`}>
-            <Outlet />
+        <main
+            className={`flexCenterCol bg-blue-gray-50 min-h-screen w-full ${className}`}
+        >
+            {children}
         </main>
     );
 }

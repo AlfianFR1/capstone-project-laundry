@@ -14,4 +14,12 @@
     .flexBetween {
         @apply flex justify-between items-center;
     }
+
+    .flexEnd {
+        @apply flex justify-end items-center;
+    }
+
+    .noInputLabel {
+        @apply !border-gray-300 focus:!border-blue-500/40;
+    }
 }
