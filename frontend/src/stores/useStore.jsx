@@ -13,7 +13,16 @@ const initialState = {
 
 export const useStore = create((set, get) => ({
     ...initialState,
-    setSelectedCategory: (category) => set({ selectedCategory: category }),
+    setSelectedCategory: (category) => {
+        set({
+            selectedCategory: category,
+            checkoutProducts: [],
+            totalProductPrice: 0,
+            totalProductQuantity: 0,
+            subTotal: 0,
+            total: 0,
+        });
+    },
     setProducts: (products) => set({ products }),
     clearCheckout: () => set(initialState),
     addToCheckout: (product) => {
@@ -44,20 +53,35 @@ export const useStore = create((set, get) => ({
             ];
         }
 
-        const totalProductPrice = newProduct.reduce(
-            (acc, curr) => acc + curr.price * curr.quantity,
-            0
-        );
+        const isCategorySatuan = get().selectedCategory?.id === 1;
 
         const totalProductQuantity = newProduct.reduce(
             (acc, curr) => acc + curr.quantity,
             0
         );
 
+        let total = 0;
+        let totalProductPrice = 0;
+
+        if (isCategorySatuan) {
+            totalProductPrice = newProduct.reduce(
+                (acc, curr) => acc + curr.price * curr.quantity,
+                0
+            );
+
+            total = totalProductPrice;
+        } else {
+            totalProductPrice =
+                totalProductQuantity * get().selectedCategory?.price;
+
+            total = totalProductQuantity * get().selectedCategory?.price;
+        }
+
         set({
             checkoutProducts: newProduct,
             totalProductPrice,
             totalProductQuantity,
+            total,
         });
     },
     removeToCheckout: (product) => {
@@ -90,20 +114,35 @@ export const useStore = create((set, get) => ({
             }
         }
 
-        const totalProductPrice = newProduct.reduce(
-            (acc, curr) => acc + curr.price * curr.quantity,
-            0
-        );
+        const isCategorySatuan = get().selectedCategory?.id === 1;
 
         const totalProductQuantity = newProduct.reduce(
             (acc, curr) => acc + curr.quantity,
             0
         );
 
+        let total = 0;
+        let totalProductPrice = 0;
+
+        if (isCategorySatuan) {
+            totalProductPrice = newProduct.reduce(
+                (acc, curr) => acc + curr.price * curr.quantity,
+                0
+            );
+
+            total = totalProductPrice;
+        } else {
+            totalProductPrice =
+                totalProductQuantity * get().selectedCategory?.price;
+
+            total = totalProductQuantity * get().selectedCategory?.price;
+        }
+
         set({
             checkoutProducts: newProduct,
             totalProductPrice,
             totalProductQuantity,
+            total,
         });
     },
     setCategories: (categories) => set({ categories }),
