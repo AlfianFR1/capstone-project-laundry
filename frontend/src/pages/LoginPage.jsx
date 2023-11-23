@@ -4,8 +4,11 @@ import FormLabel from '@/components/ui/FormLabel';
 import GuestLayout from '@/layouts/GuestLayout';
 import { Button, Card, Input, Typography } from '@material-tailwind/react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
+    const navigate = useNavigate();
+
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -14,6 +17,7 @@ export default function LoginPage() {
 
         console.log('login', data);
         toast.success('Login berhasil');
+        navigate('/');
     };
 
     return (

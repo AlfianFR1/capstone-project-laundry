@@ -11,9 +11,9 @@ export default function Router() {
             <Route path='/login' element={<LoginPage />} />
 
             <Route path='/' element={<DashboardPage />} />
-            <Route path='/order' element={<OrderPage />} />
-            <Route path='/order-history' element={<OrderHistoryPage />} />
-            <Route path='/products' element={<ProductPage />} />
+            <Route path='/pemesanan' element={<OrderPage />} />
+            <Route path='/riwayat-pemesanan' element={<OrderHistoryPage />} />
+            <Route path='/daftar-produk' element={<ProductPage />} />
         </Routes>
     );
 }

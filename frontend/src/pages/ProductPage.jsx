@@ -1,7 +1,9 @@
+import MainLayout from '@/layouts/MainLayout';
+
 export default function ProductPage() {
     return (
-        <div>
+        <MainLayout>
             <h1>ProductPage</h1>
-        </div>
+        </MainLayout>
     );
 }

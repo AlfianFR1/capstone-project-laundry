@@ -1,7 +1,9 @@
+import MainLayout from '@/layouts/MainLayout';
+
 export default function OrderHistoryPage() {
     return (
-        <div>
+        <MainLayout>
             <h1>OrderHistoryPage</h1>
-        </div>
+        </MainLayout>
     );
 }

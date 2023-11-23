@@ -1,7 +1,9 @@
+import MainLayout from '@/layouts/MainLayout';
+
 export default function DashboardPage() {
     return (
-        <div>
+        <MainLayout>
             <h1>DashboardPage</h1>
-        </div>
+        </MainLayout>
     );
 }
