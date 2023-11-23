@@ -49,7 +49,7 @@ export default function MainHeader() {
     };
 
     return (
-        <Navbar className='sticky top-0 z-10 w-full max-w-6xl px-4 py-4 mx-auto mt-4 border border-gray-300 h-max lg:px-8 lg:py-4'>
+        <Navbar className='sticky z-20 w-full max-w-6xl px-4 py-4 mx-auto mt-4 bg-white border border-gray-300 top-4 h-max lg:px-8 lg:py-4'>
             <div className='flex items-center justify-between text-blue-gray-900'>
                 <Link to='/'>
                     <Typography color='blue-gray' variant='h6'>
