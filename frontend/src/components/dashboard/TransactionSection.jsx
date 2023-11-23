@@ -10,8 +10,11 @@ import {
     Typography,
 } from '@material-tailwind/react';
 import { FiPlus } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 export default function TransactionSection() {
+    const navigate = useNavigate();
+
     const TABLE_HEAD = [
         'Sales ID',
         'Nama Pelanggan',
@@ -86,6 +89,7 @@ export default function TransactionSection() {
                         color='light-blue'
                         size='sm'
                         className='flex items-center gap-3'
+                        onClick={() => navigate('/pemesanan')}
                     >
                         <FiPlus size={20} />
                         Tambah
