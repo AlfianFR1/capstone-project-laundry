@@ -1,4 +1,4 @@
-import { createStore } from 'zustand';
+import { create } from 'zustand';
 
 const initialState = {
     categories: [],
@@ -11,7 +11,7 @@ const initialState = {
     total: 0,
 };
 
-const useStore = createStore((set) => ({
+export const useStore = create((set) => ({
     ...initialState,
     setSelectedCategory: (category) => set({ selectedCategory: category }),
     setProducts: (products) => set({ products }),
@@ -33,5 +33,3 @@ const useStore = createStore((set) => ({
     setSubTotal: (subTotal) => set({ subTotal }),
     setTotal: (total) => set({ total }),
 }));
-
-export default useStore;

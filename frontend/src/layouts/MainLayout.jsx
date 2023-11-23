@@ -4,8 +4,10 @@ import Container from '@/components/ui/Container';
 export default function MainLayout({ children, className = '', ...props }) {
     return (
         <main className={`${className}`} {...props}>
-            <MainHeader />
-            <Container>{children}</Container>
+            <Container>
+                <MainHeader />
+                {children}
+            </Container>
         </main>
     );
 }
