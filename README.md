@@ -47,5 +47,5 @@ cd frontend
 
 -   Juan Antonio Vivaldy Saragih
 -   Juanita Tria Silpi Analia
--   Alfian F
+-   Alfian Fathur Rohman
 -   Dimas Pangestu
